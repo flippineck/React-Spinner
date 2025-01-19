@@ -1,0 +1,31 @@
+{
+  "name": "spinner",
+  "version": "1.0.0",
+  "description": "React front end spinner app",
+  "keywords": [
+    "react",
+    "spinner"
+  ],
+  "author": "Dave Hutchings",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "parcel": "^2.13.3",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "eslint": "^9.18.0",
+    "md5": "^2.3.0",
+    "prettier": "^3.4.2",
+    "process": "^0.11.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rimraf": "^6.0.1"
+  },
+  "scripts": {
+    "predev": "rimraf .parcel-cache dist",
+    "dev": "parcel public/index.html",
+    "build": "parcel build public/index.html"
+  }
+}
