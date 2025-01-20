@@ -7,7 +7,7 @@ export function MeetTheTeam({theTeam}) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    animate("div",{opacity: 1}, {duration: 2});
+    animate("div",{opacity: 1}, {duration: 3});
     animate("img", { "rotate": "360deg" },  {duration: 1},{ type: "rotate" });
   }, [scope])
 
