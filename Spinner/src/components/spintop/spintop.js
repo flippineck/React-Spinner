@@ -1,13 +1,30 @@
-import Gravatar from "../../utils/gravatar";
+import React from 'react';
+import { useState } from 'react';
+import Spinner from './spinner';
+import { HelpCircle as Start} from 'react-feather';
 
-export function SpinTop({theDate,theTeam}) {
+import Modal from "../../utils/modal";
+import useToggle from '../../utils/use-toggle';
+
+export function Spintop({ date,teamMembers }) {
+  
+  const [Member, setMember] = React.useState('');
+  const [isModalOpen, toggleIsModalOpen] = useToggle(false);
+  const [randomIndex,setRandomIndex] = useState(Math.floor(Math.random() * teamMembers.length));
+  
+  console.log(`random index is pass in as ${randomIndex}`);
   return (
     <>
-    {theTeam.Members.map((teamMember) => (
-      <div key={teamMember.Email} className="flex flex-col items-center justify-center p-4 m-4 bg-blue-200 rounded-lg shadow-lg">
-          <Gravatar teamMember={teamMember} />
-      </div>
-    ))}
+      <button onClick={() => {toggleIsModalOpen()}}>
+        <Start />
+      </button>
+
+      {isModalOpen && (     
+        <Modal title="Meet the Team" handleDismiss={() => {setMember(''); toggleIsModalOpen();}}>
+          <Spinner teamMembers={teamMembers} randomIndex={randomIndex}/>
+          {console.log(`render random index is ${randomIndex}`)}
+        </Modal>
+      )}
     </>
   );
 }

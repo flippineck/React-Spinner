@@ -9,6 +9,7 @@
   "author": "Dave Hutchings",
   "license": "ISC",
   "devDependencies": {
+    "@xpd/tailwind-3dtransforms": "^1.0.3",
     "autoprefixer": "^10.4.20",
     "parcel": "^2.13.3",
     "postcss": "^8.5.1",
@@ -17,7 +18,7 @@
   "dependencies": {
     "eslint": "^9.18.0",
     "md5": "^2.3.0",
-    "motion": "^11.18.1",
+    "motion": "^11.18.2",
     "prettier": "^3.4.2",
     "process": "^0.11.10",
     "react": "^19.0.0",

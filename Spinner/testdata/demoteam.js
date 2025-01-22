@@ -27,8 +27,8 @@ export const demoTeam =
         Email: "tenisha.tagoe@traka.com"
       },
       {
-        Name: "Max",
-        Email: "max@traka.com"
+        Name: "Max Carrington",
+        Email: "max.carrington@traka.com"
       }
     ],
     Dates: [
