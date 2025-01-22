@@ -12,17 +12,16 @@ export function Spintop({ date,teamMembers }) {
   const [isModalOpen, toggleIsModalOpen] = useToggle(false);
   const [randomIndex,setRandomIndex] = useState(Math.floor(Math.random() * teamMembers.length));
   
-  console.log(`random index is pass in as ${randomIndex}`);
+
   return (
     <>
-      <button onClick={() => {toggleIsModalOpen()}}>
+      <button onClick={() => {setRandomIndex(Math.floor(Math.random() * teamMembers.length)); toggleIsModalOpen()}}>
         <Start />
       </button>
 
       {isModalOpen && (     
         <Modal title="Meet the Team" handleDismiss={() => {setMember(''); toggleIsModalOpen();}}>
           <Spinner teamMembers={teamMembers} randomIndex={randomIndex}/>
-          {console.log(`render random index is ${randomIndex}`)}
         </Modal>
       )}
     </>

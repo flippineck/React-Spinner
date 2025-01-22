@@ -9,36 +9,36 @@ function Spinner({teamMembers,randomIndex}) {
   
   const [isSpinning, setIsSpinning] = useState(true);
   
-  var rotationsLeft = (teamMembers.length*2) + randomIndex;
+  var rotationsmax = (teamMembers.length*2) + randomIndex;
+  var rotationsCur = 0;
   const imgRef = useRef(null);
-
-  console.log(`rotations left: ${rotationsLeft}`);
   useEffect(() => {
     const interval = setInterval(() => {
-         rotationsLeft = rotationsLeft - 1;
-           
-           console.log(`interval rotations left: ${rotationsLeft}`);
-           if (rotationsLeft === 0) {
+           console.log(`interval rotations current: ${rotationsCur}`);
+           imgRef.current.src = GravatarURL({ teamMember: teamMembers[rotationsCur % teamMembers.length] });
+           if (rotationsCur === rotationsmax) {
              setIsSpinning(false);
-             clearInterval(interval);}
-             
-             imgRef.current.src = GravatarURL({ teamMember: teamMembers[rotationsLeft % teamMembers.length] });
-             imgRef.current.style.transform = `rotateY(${rotationsLeft % 2 ? 89:269}deg)`;
+             clearInterval(interval);
+             imgRef.current.style.transform = `rotateY(0deg)`;
              imgRef.current.style.transition = `transform 0.7s ease-in-out`;
+             
+             
+            } else {
+              imgRef.current.style.transform = `rotateY(${rotationsCur % 2 ? 90:270}deg)`;
+             imgRef.current.style.transition = `transform 0.4s ease-in-out`;
+            }
+            rotationsCur = rotationsCur +1;
 
-  
-    }, 700); 
+    }, 400); 
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <>
-
-      {isSpinning ? <img ref={imgRef} className="self-center w-32 rounded-full" /> : <Gravatar teamMember={teamMembers[randomIndex]} />}
-      
-      <button onClick={() => {pickedMemberSet(teamMember);}}>Pick Me!</button>
-    </>
+    
+      <div className="bg-orange-400">
+        <img ref={imgRef} className="self-center bg-orange-300 w-32 rounded-full" /> 
+      </div>
   );
 }
 export default React.memo(Spinner);

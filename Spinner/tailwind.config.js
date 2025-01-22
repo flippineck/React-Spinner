@@ -4,5 +4,5 @@ module.exports = {
     extend: {},
   },
   variants: {},
-  plugins: [require("@xpd/tailwind-3dtransforms")]
+  plugins: []
 };

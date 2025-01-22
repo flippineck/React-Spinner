@@ -40,7 +40,7 @@ function Modal({ title, handleDismiss, children }) {
             onClick={handleDismiss}
           />
           <div
-            className="relative p-4 bg-white rounded-lg shadow-lg"
+            className="relative p-1 bg-white rounded-lg shadow-lg"
             role="dialog"
             aria-modal="true"
             aria-label={title}
