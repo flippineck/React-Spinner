@@ -15,7 +15,7 @@ function Spinner({teamMembers,randomIndex}) {
   useEffect(() => {
     const interval = setInterval(() => {
            console.log(`interval rotations current: ${rotationsCur}`);
-           imgRef.current.src = GravatarURL({ teamMember: teamMembers[rotationsCur % teamMembers.length] });
+           imgRef.current.src = GravatarURL({ teamMember: teamMembers[rotationsCur % teamMembers.length],size: 256 });
            if (rotationsCur === rotationsmax) {
              setIsSpinning(false);
              clearInterval(interval);
@@ -24,7 +24,7 @@ function Spinner({teamMembers,randomIndex}) {
              
              
             } else {
-              imgRef.current.style.transform = `rotateY(${rotationsCur % 2 ? 90:270}deg)`;
+              imgRef.current.style.transform = `rotateY(${rotationsCur % 2 ? 89:269}deg)`;
              imgRef.current.style.transition = `transform 0.4s ease-in-out`;
             }
             rotationsCur = rotationsCur +1;
@@ -36,8 +36,8 @@ function Spinner({teamMembers,randomIndex}) {
 
   return (
     
-      <div className="bg-orange-400">
-        <img ref={imgRef} className="self-center bg-orange-300 w-32 rounded-full" /> 
+      <div>
+        <img ref={imgRef} className="self-center bg-orange-300 w-full rounded-full" /> 
       </div>
   );
 }
