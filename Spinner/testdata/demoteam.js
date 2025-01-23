@@ -33,8 +33,16 @@ export const demoTeam =
     ],
     Dates: [
       {
-        Date: "2025-01-01",
+        Date: "Tue Jan 21 2025",
         Chosen: "dave.hutchings@traka.com"
+      },
+      {
+        Date: "Wed Jan 22 2025",
+        Chosen: "paul.mcculla@traka.com"
+      },
+      {
+        Date: "Thu Jan 23 2025",
+        Chosen: "chris.tattum@traka.com"
       }
     ]
     

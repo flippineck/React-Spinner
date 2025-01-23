@@ -1,20 +1,21 @@
 import React from "react";
 
+import {TeamProvider} from "./components/data/TeamProvider";
 
-import { demoTeam } from "../testdata/demoteam";
 import { MeetTheTeam } from "./components/MeetTheTeam";
-import { Spintop } from "./components/spintop/spintop";
+import { MonthDiary } from "./components/calender/month";
+
+
 
 
 
 function App() {
-  
+  const [viewDate, setViewDate] = React.useState(new Date());
   return (
-    <>
-      <MeetTheTeam theTeam={demoTeam} />
-      <Spintop teamMembers={demoTeam.Members}/>
-      
-    </>
+    <TeamProvider>
+      <MeetTheTeam />
+      <MonthDiary viewDate={viewDate} setViewDate={setViewDate}/>
+    </TeamProvider>
   );
 }
 

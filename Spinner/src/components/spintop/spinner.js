@@ -1,11 +1,7 @@
 import { GravatarURL } from "../../utils/gravatarUrl";
-import { color, motion } from "motion/react"
 import React,{ useState, useEffect,useRef } from "react";
-import Gravatar from "../../utils/gravatar";
 
 function Spinner({teamMembers,randomIndex}) {
-  // pick a random from the array of team members
-  
   
   const [isSpinning, setIsSpinning] = useState(true);
   
@@ -14,17 +10,15 @@ function Spinner({teamMembers,randomIndex}) {
   const imgRef = useRef(null);
   useEffect(() => {
     const interval = setInterval(() => {
-           console.log(`interval rotations current: ${rotationsCur}`);
-           imgRef.current.src = GravatarURL({ teamMember: teamMembers[rotationsCur % teamMembers.length],size: 256 });
+
+           imgRef.current.src = GravatarURL({ Email: teamMembers[rotationsCur % teamMembers.length].Email,size: 256 });
            if (rotationsCur === rotationsmax) {
              setIsSpinning(false);
              clearInterval(interval);
              imgRef.current.style.transform = `rotateY(0deg)`;
              imgRef.current.style.transition = `transform 0.7s ease-in-out`;
-             
-             
             } else {
-              imgRef.current.style.transform = `rotateY(${rotationsCur % 2 ? 89:269}deg)`;
+             imgRef.current.style.transform = `rotateY(${rotationsCur % 2 ? 89:269}deg)`;
              imgRef.current.style.transition = `transform 0.4s ease-in-out`;
             }
             rotationsCur = rotationsCur +1;

@@ -1,10 +1,14 @@
-import Gravatar from "../utils/gravatar";
+import React from "react";
 import { motion } from "motion/react"
 import { useAnimate } from "motion/react"
 import { useEffect } from "react";
 
-export function MeetTheTeam({theTeam}) {
+import Gravatar from "../utils/gravatar";
+import { TeamContext } from "./data/TeamProvider";
+
+export function MeetTheTeam() {
   const [scope, animate] = useAnimate();
+  const theTeam = React.useContext(TeamContext);
 
   useEffect(() => {
     animate("div",{opacity: 1}, {duration: 3});
