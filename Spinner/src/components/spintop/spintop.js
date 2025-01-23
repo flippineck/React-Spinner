@@ -2,16 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import Spinner from './spinner';
 import { HelpCircle as Start} from 'react-feather';
-import { Chosen } from '../data/TeamProvider';
+import { TeamContext } from '../data/TeamProvider';
 
 import Modal from "../../utils/modal";
 import useToggle from '../../utils/use-toggle';
 
-export function Spintop({ date,teamMembers }) {
-  
-  const [Member, setMember] = React.useState('');
+export function Spintop({ date }) {
+  const {members,chosen} = React.useContext(TeamContext);
   const [isModalOpen, toggleIsModalOpen] = useToggle(false);
-  const [randomIndex,setRandomIndex] = useState(Math.floor(Math.random() * teamMembers.length));
+  const [randomIndex,setRandomIndex] = useState(Math.floor(Math.random() * members.length));
   
   var handleDismiss = () => {
     toggleIsModalOpen();
@@ -21,19 +20,19 @@ export function Spintop({ date,teamMembers }) {
     handleDismiss();
     if (date)
     {
-      Chosen({chosen:randomIndex,viewDate:date});
+      chosen({chosen:randomIndex,viewDate:date});
     }
   };
 
   return (
     <>
-      <button onClick={() => {setRandomIndex(Math.floor(Math.random() * teamMembers.length)); toggleIsModalOpen()}}>
+      <button onClick={() => {setRandomIndex(Math.floor(Math.random() * members.length)); toggleIsModalOpen()}}>
         <Start />
       </button>
 
       {isModalOpen && (     
         <Modal handleDismiss={handleDismiss}>
-          <Spinner date={date} teamMembers={teamMembers} randomIndex={randomIndex} handleSpun={() => {handleSpun()}}/>
+          <Spinner date={date} teamMembers={members} randomIndex={randomIndex} handleSpun={() => {handleSpun()}}/>
         </Modal>
       )}
     </>

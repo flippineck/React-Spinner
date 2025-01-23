@@ -8,7 +8,7 @@ import { TeamContext } from "./data/TeamProvider";
 
 export function MeetTheTeam() {
   const [scope, animate] = useAnimate();
-  const theTeam = React.useContext(TeamContext);
+  const {members} = React.useContext(TeamContext);
 
   useEffect(() => {
     animate("div",{opacity: 1}, {duration: 3});
@@ -18,9 +18,9 @@ export function MeetTheTeam() {
 
   return (
     <>
-      <h1 className="text-center font-bold text-5xl bg-clip-text text-transparent bg-gradient-to-r from-orange-200 to-orange-700">{theTeam.TeamName}</h1>
+      <h1 className="text-center font-bold text-5xl bg-clip-text text-transparent bg-gradient-to-r from-orange-200 to-orange-700">TODO</h1>
       <div ref={scope} className="flex justify-between">
-        {theTeam.Members.map((teamMember) => (
+        {members.map((teamMember) => (
           <div key={teamMember.Email} className="opacity-0 flex flex-col flex-wrap items-center justify-center p-1 m-1 bg-orange-200 rounded-lg shadow-lg">
               <Gravatar teamMember={teamMember} />
               <h2 className="text-xs">{teamMember.Name}</h2>
