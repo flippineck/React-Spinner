@@ -15,6 +15,7 @@
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "eslint": "^9.18.0",
     "md5": "^2.3.0",
     "motion": "^11.18.2",
