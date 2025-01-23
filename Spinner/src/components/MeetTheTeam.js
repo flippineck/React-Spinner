@@ -14,7 +14,6 @@ export function MeetTheTeam() {
     animate("div",{opacity: 1}, {duration: 3});
     animate("img", { "rotate": "360deg" },  {duration: 1},{ type: "rotate" });
     
-    
   }, [scope])
 
   return (

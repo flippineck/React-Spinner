@@ -1,8 +1,6 @@
 import React from 'react';
 import { TeamContext } from '../data/TeamProvider';
-import Gravatar from '../../utils/gravatar';
 import { GravatarURL } from '../../utils/gravatarUrl';
-
 
 export function TeamMember({viewDate}){
   const theTeam = React.useContext(TeamContext);

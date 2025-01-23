@@ -11,7 +11,6 @@ export function Spintop({ date,teamMembers }) {
   const [Member, setMember] = React.useState('');
   const [isModalOpen, toggleIsModalOpen] = useToggle(false);
   const [randomIndex,setRandomIndex] = useState(Math.floor(Math.random() * teamMembers.length));
-  
 
   return (
     <>
@@ -20,7 +19,7 @@ export function Spintop({ date,teamMembers }) {
       </button>
 
       {isModalOpen && (     
-        <Modal title="Meet the Team" handleDismiss={() => {setMember(''); toggleIsModalOpen();}}>
+        <Modal handleDismiss={() => {setMember(''); toggleIsModalOpen();}}>
           <Spinner teamMembers={teamMembers} randomIndex={randomIndex}/>
         </Modal>
       )}
