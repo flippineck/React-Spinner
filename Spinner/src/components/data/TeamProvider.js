@@ -11,3 +11,15 @@ export function TeamProvider({ children }) {
     </TeamContext>
   );
 }
+
+export function Chosen({chosen,viewDate})
+{
+   console.log(`chosen = ${viewDate} on day ${viewDate}`)
+   const teamMember = demoTeam.Dates.find(log => log.Date === viewDate.toDateString());
+   if (teamMember) {
+      teamMember.Chosen = demoTeam.Members[chosen].Email;
+   } else {
+    demoTeam.Dates.push({Date: viewDate.toDateString(), Chosen: demoTeam.Members[chosen].Email});
+   }
+
+}
