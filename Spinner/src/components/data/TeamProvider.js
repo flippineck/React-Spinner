@@ -11,7 +11,7 @@ function TeamProvider({children}) {
       loadedDemoTeam = JSON.parse(teamData);
       console.log("TeamProvider demoTeam", demoTeam);
     } else {
-      loadedDemoTeam = teamData;
+      loadedDemoTeam = demoTeam;
     };
     
     const [members, setMembers] = React.useState(loadedDemoTeam.Members);
