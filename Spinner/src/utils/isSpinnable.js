@@ -1,9 +1,13 @@
 export function isSpinnable(day) {
-  const today = new Date();
-  if (day < today) {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  var checkDay = new Date(day);
+  checkDay.setHours(0,0,0,0);
+    
+  if (checkDay < today) {
     return false;
   }
-  if ( day.getDay() === 0 || day.getDay() === 6) {
+  if ( checkDay.getDay() === 0 || checkDay.getDay() === 6) {
     return false;
   }
 
