@@ -2,6 +2,7 @@ import React from 'react';
 import { TeamContext } from '../data/TeamProvider';
 import { GravatarURL } from '../../utils/gravatarUrl';
 import { Spintop } from '../spintop/spintop';
+import { isSpinnable } from '../../utils/isSpinnable';
 
 export function TeamMember({viewDate}){
   const {members,dates} = React.useContext(TeamContext);
@@ -12,8 +13,8 @@ export function TeamMember({viewDate}){
       {teamMember ? (
         <img className="self-center w-8 rounded-full" src={GravatarURL({Email : teamMember.Chosen})} />
       ) : (
-        <Spintop date={viewDate} teamMembers={members}/> 
-      )}
+        isSpinnable(viewDate) && <Spintop date={viewDate} teamMembers={members}/> 
+      ) }
     </>
   );
 }
