@@ -1,7 +1,7 @@
 import { GravatarURL } from "../../utils/gravatarUrl";
 import React,{ useState, useEffect,useRef } from "react";
 
-function Spinner({teamMembers,randomIndex}) {
+function Spinner({teamMembers,randomIndex,handleSpun}) {
   
   const [isSpinning, setIsSpinning] = useState(true);
   
@@ -17,6 +17,7 @@ function Spinner({teamMembers,randomIndex}) {
              clearInterval(interval);
              imgRef.current.style.transform = `rotateY(0deg)`;
              imgRef.current.style.transition = `transform 0.7s ease-in-out`;
+             
             } else {
              imgRef.current.style.transform = `rotateY(${rotationsCur % 2 ? 89:269}deg)`;
              imgRef.current.style.transition = `transform 0.4s ease-in-out`;
@@ -27,11 +28,10 @@ function Spinner({teamMembers,randomIndex}) {
 
     return () => clearInterval(interval);
   }, []);
-
+  
   return (
-    
       <div>
-        <img ref={imgRef} className="self-center bg-orange-300 w-full rounded-full" /> 
+        <img ref={imgRef} className="self-center bg-orange-300 w-full rounded-full" onClick={() => {!isSpinning && handleSpun()}}/> 
       </div>
   );
 }

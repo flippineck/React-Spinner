@@ -41,7 +41,7 @@ export function MonthViewer( {viewDate}) {
       <div class="flex bg-gray-200 text-xs/6 text-gray-700 lg:flex-auto">
         <div class="w-full grid grid-cols-7 grid-rows-6 gap-px">
           {daysList.map((day) => (
-            <div key={day} className={"relative px-3 py-2 " +(day.getMonth() === viewDate.getMonth() ? ' bg-white' : 'bg-gray-50 text-gray-500')} >
+            <div key={day} className={"relative px-3 py-2 flex justify-between " +(day.getMonth() === viewDate.getMonth() ? ' bg-white' : 'bg-gray-50 text-gray-500')} >
               {day.getDate()}
               <TeamMember viewDate={day}/>
           </div>
