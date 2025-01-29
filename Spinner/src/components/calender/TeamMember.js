@@ -6,6 +6,7 @@ import { isSpinnable } from '../../utils/isSpinnable';
 
 export function TeamMember({viewDate}){
   const {members,dates} = React.useContext(TeamContext);
+  console.log("dates",dates);
   const teamMember = dates.find(log => log.Date === viewDate.toDateString());
 
   return (
